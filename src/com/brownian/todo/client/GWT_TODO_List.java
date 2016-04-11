@@ -38,14 +38,17 @@ public class GWT_TODO_List implements EntryPoint {
 	/**
 	 * This is the entry point method.
 	 */
+	@Override
 	public void onModuleLoad() {
-		final Button sendButton = new Button("Send");
+		try{
+		final Button sendButton = new Button("Send to Server");
 		final TextBox nameField = new TextBox();
 		nameField.setText("GWT User");
 		final Label errorLabel = new Label();
 
 		// We can add style names to widgets
 		sendButton.addStyleName("sendButton");
+		
 
 		// Add the nameField and sendButton to the RootPanel
 		// Use RootPanel.get() to get the entire body element
@@ -148,5 +151,8 @@ public class GWT_TODO_List implements EntryPoint {
 		MyHandler handler = new MyHandler();
 		sendButton.addClickHandler(handler);
 		nameField.addKeyUpHandler(handler);
+		} catch(Exception e){
+			e.printStackTrace(System.err);
+		}
 	}
 }
