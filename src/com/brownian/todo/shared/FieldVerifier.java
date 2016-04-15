@@ -1,5 +1,8 @@
 package com.brownian.todo.shared;
 
+import java.util.Date;
+import java.util.Calendar;
+
 /**
  * <p>
  * FieldVerifier validates that the name the user enters is valid.
@@ -38,5 +41,11 @@ public class FieldVerifier {
 			return false;
 		}
 		return name.length() > 3;
+	}
+	
+	public static boolean isValidDate(Date date){
+		if(date == null)
+			return true;
+		return date.after(Calendar.getInstance().getTime());
 	}
 }

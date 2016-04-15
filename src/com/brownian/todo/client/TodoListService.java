@@ -10,4 +10,6 @@ public interface TodoListService extends RemoteService {
 	List<TodoEntry> getTodoList();
 	int getNumTodoEntries();
 	void addTodoEntry(TodoEntry entry);
+	void markAsDone(int index, boolean isDone);
+	List<TodoEntry> clearDoneEntries();
 }
